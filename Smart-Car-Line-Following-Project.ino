@@ -8,7 +8,7 @@
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 // ========== 巡线参数（高速模式） ==========
-const int BASE_SPEED = 230;        // 基础前进速度【大幅提高到230】
+const int BASE_SPEED = 255;        // 基础前进速度【大幅提高到230】
 const int MAX_CORRECTION = 150;    // 最大差速修正【提高到150，允许更大的转向差】
 const float KP = 15.0f;            // 比例系数【降低到15，减少过度反应】
 const float KD = 140.0f;           // 微分系数【增加到140，提高稳定性】
@@ -174,11 +174,11 @@ void loop()
         if (last_turn_direction > 0)
         {
             motor_left = SEARCH_TURN_SPEED;
-            motor_right = -100;  // 右轮倒车找线
+            motor_right = -50;  // 右轮倒车找线
         }
         else
         {
-            motor_left = -100;  // 左轮倒车找线
+            motor_left = -50;  // 左轮倒车找线
             motor_right = SEARCH_TURN_SPEED;
         }
     }
